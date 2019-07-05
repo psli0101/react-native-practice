@@ -7,17 +7,28 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, ScrollView, View} from 'react-native';
 
 import Example from './components/Example';
+import Sample from './components/Example2';
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Example></Example>
-      </View>
+        <View style={{ justifyContent: 'center', alignItems: 'center',}}>
+        <Sample></Sample>
+        <Sample></Sample>
+        <Sample></Sample>
+        <Sample></Sample>
+        <Sample></Sample>
+        <Sample></Sample>
+        <Sample></Sample>
+        <Sample></Sample>
+        </View>
+      </ScrollView>
     );
   }
 }
@@ -25,8 +36,6 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   }
 });
