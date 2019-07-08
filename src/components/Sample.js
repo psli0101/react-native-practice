@@ -4,7 +4,7 @@ import { Container, Header, Content, Card, CardItem, Body, Text } from 'native-b
 export default class CardExample extends Component {
   render() {
     return (
-      <Card  style={{ width:200, }}>
+      <Card  style={{ width:100, }}>
         <CardItem>
           <Text>
             1
