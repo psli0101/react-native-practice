@@ -17,9 +17,8 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <Content style={styles.container}>
+      <Content>
         <ToDoList></ToDoList>
-        <Example></Example>
       </Content>
     );
   }
