@@ -3,6 +3,7 @@ import { Content } from 'native-base';
 
 import Header from '@components/toDoList/Header';
 import Edit from '@components/toDoList/Edit';
+import Item from '@components/toDoList/ListItem';
 
 export default class ToDoList extends Component {
   constructor() {
@@ -14,6 +15,7 @@ export default class ToDoList extends Component {
       <Content>
         <Header name='To Do List'></Header>
         <Edit></Edit>
+        <Item></Item>
       </Content>
     );
   }

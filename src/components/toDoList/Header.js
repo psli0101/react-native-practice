@@ -9,7 +9,7 @@ export default class Header extends Component {
   render() {
     return (
       <View style={styles.title}>
-        <Text style={{ fontSize: 24, }}>{this.props.name}</Text>
+        <Text style={{ fontSize: 24, color: '#676767'}}>{this.props.name}</Text>
       </View>
     );
   }
