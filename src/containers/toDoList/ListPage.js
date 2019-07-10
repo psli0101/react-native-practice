@@ -5,7 +5,7 @@ import Header from '@components/toDoList/Header';
 import Edit from '@components/toDoList/Edit';
 import Item from '@components/toDoList/ListItem';
 
-export default class ToDoList extends Component {
+export default class ListPage extends Component {
   constructor() {
     super();
   }
