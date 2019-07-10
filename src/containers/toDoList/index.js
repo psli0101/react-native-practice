@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Content } from 'native-base';
 
 import Header from '@components/toDoList/Header';
-import Search from '@components/toDoList/Search';
+import Edit from '@components/toDoList/Edit';
 
 export default class ToDoList extends Component {
   constructor() {
@@ -13,7 +13,7 @@ export default class ToDoList extends Component {
     return (
       <Content>
         <Header name='To Do List'></Header>
-        <Search></Search>
+        <Edit></Edit>
       </Content>
     );
   }
