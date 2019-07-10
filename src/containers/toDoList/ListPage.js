@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Content } from 'native-base';
+import { Container, Content } from 'native-base';
 
 import Header from '@components/toDoList/Header';
 import Edit from '@components/toDoList/Edit';
 import Item from '@components/toDoList/ListItem';
+import Footer from '@components/toDoList/Footer';
 
 export default class ListPage extends Component {
   constructor() {
@@ -12,11 +13,14 @@ export default class ListPage extends Component {
 
   render() {
     return (
-      <Content>
+      <Container>
         <Header name='To Do List'></Header>
-        <Edit></Edit>
-        <Item></Item>
-      </Content>
+        <Content>
+          <Edit></Edit>
+          <Item></Item>
+        </Content>
+        <Footer></Footer>
+      </Container>
     );
   }
 }

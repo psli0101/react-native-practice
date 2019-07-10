@@ -5,6 +5,21 @@ import { Button } from 'native-base';
 export default class LoginPage extends Component {
   constructor() {
     super();
+    this.state = {
+      user_id: '',
+      user_pw: ''
+    }
+  }
+
+  clearText = () => {
+    this.setState({
+      user_id: '',
+      user_pw: ''
+    })
+  }
+
+  login = () => {
+    alert(this.state.user_id + ' ' + this.state.user_pw)
   }
 
   render() {
@@ -13,20 +28,28 @@ export default class LoginPage extends Component {
         <TextInput
           style={styles.userId}
           placeholder='ID'
-          onChangeText={(text) => this.setState({text})}
+          onChangeText={(user_id) => this.setState({user_id})}
           underlineColorAndroid='#000'
+          value={this.state.user_id}
         />
         <TextInput
           style={styles.password}
           placeholder='Password'
-          onChangeText={(text) => this.setState({text})}
+          onChangeText={(user_pw) => this.setState({user_pw})}
           underlineColorAndroid='#000'
+          value={this.state.user_pw}
         />
         <View style={styles.btView}>
-          <Button style={styles.bt}>
+          <Button
+            style={styles.bt}
+            onPress={this.clearText}
+          >
             <Text style={{ fontSize: 20, }}>Cancel</Text>
           </Button>
-          <Button style={styles.bt}>
+          <Button
+            style={styles.bt}
+            onPress={this.login}
+          >
             <Text style={{ fontSize: 20, }}>Login</Text>
           </Button>
         </View>
