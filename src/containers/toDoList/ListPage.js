@@ -7,6 +7,10 @@ import Item from '@components/toDoList/ListItem';
 import Footer from '@components/toDoList/Footer';
 
 export default class ListPage extends Component {
+  static navigationOptions = {
+    header: null
+  }
+
   constructor() {
     super();
   }

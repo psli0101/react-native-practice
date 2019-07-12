@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text, TextInput, Dimensions } from 'react-native';
 import { Button } from 'native-base';
 
-export default class LoginPage extends Component {
+export default class SignUpPage extends Component {
   static navigationOptions = {
     header: null
   }
@@ -27,7 +27,7 @@ export default class LoginPage extends Component {
   }
 
   signUp = () => {
-    this.props.navigation.navigate('SignUp');
+    alert('Loading')
   }
 
   render() {

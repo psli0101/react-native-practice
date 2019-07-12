@@ -16,13 +16,13 @@ import { AppNavigator } from '@src/router/router';
 import ToDoList from '@containers/toDoList/ListPage';
 import Test from '@containers/toDoList/LoginPage';
 
-const Home = createAppContainer(AppNavigator);
+const Route = createAppContainer(AppNavigator);
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <Home/>
+      <Route/>
     );
   }
 }
