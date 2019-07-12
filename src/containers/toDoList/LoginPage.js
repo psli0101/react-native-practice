@@ -19,7 +19,7 @@ export default class LoginPage extends Component {
   }
 
   login = () => {
-    alert(this.state.user_id + ' ' + this.state.user_pw)
+    this.props.navigation.navigate('List');
   }
 
   render() {
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   all: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: Dimensions.get('window').height,
+    height: Dimensions.get('screen').height,
     backgroundColor: '#81E297',
   },
   btView: {
