@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
-import { Content, Button } from 'native-base';
+import { StyleSheet, Text, View } from 'react-native';
+import { Button } from 'native-base';
 
 export default class Edit extends Component {
   constructor() {

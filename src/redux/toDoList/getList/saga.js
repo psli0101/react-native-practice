@@ -2,12 +2,12 @@ import axios from 'axios'
 import { all, call, fork, put, takeEvery } from 'redux-saga/effects'
 
 import {
-	USER_GET_LIST,
+  USER_GET_LIST,
 } from '@constants/actionTypes'
 
 import {
-	getListSuccess,
-	getListError,
+  getListSuccess,
+  getListError,
 } from './actions'
 
 const getListRequest = async () => {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
-import { Content, Button } from 'native-base';
+import { Button } from 'native-base';
 
-const WeekList = [ 'Sun.', 'Mon.', 'Tus.', 'Wed.', 'Thu.', 'Fri.', 'Sat.' ];
+const WeekList = ['Sun.', 'Mon.', 'Tus.', 'Wed.', 'Thu.', 'Fri.', 'Sat.'];
 
 export default class Edit extends Component {
   constructor() {

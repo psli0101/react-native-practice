@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Header, Content, Card, CardItem, Body, Text } from 'native-base';
+import { Card, CardItem, Text } from 'native-base';
 
 export default class CardExample extends Component {
   render() {

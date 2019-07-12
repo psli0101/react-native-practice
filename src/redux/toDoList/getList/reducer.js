@@ -1,12 +1,12 @@
 import {
-    USER_GET_LIST,
-    USER_GET_LIST_SUCCESS,
-    USER_GET_LIST_ERROR
+  USER_GET_LIST,
+  USER_GET_LIST_SUCCESS,
+  USER_GET_LIST_ERROR
 } from '@constants/actionTypes';
 
 const INIT_STATE = {
-    toDoList: [],
-    loading: false
+  toDoList: [],
+  loading: false
 };
 
 export default (state = INIT_STATE, action) => {
