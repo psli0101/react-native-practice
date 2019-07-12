@@ -13,9 +13,6 @@ import { createAppContainer } from 'react-navigation';
 
 import { AppNavigator } from '@src/router/router';
 
-import ToDoList from '@containers/toDoList/ListPage';
-import Test from '@containers/toDoList/LoginPage';
-
 const Route = createAppContainer(AppNavigator);
 
 type Props = {};
