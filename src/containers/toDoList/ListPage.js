@@ -23,8 +23,8 @@ export default class ListPage extends Component {
     return (
       <Container>
         <Header name='To Do List'></Header>
+        <Edit name='ADD'></Edit>
         <Content>
-          <Edit name='ADD'></Edit>
           <Item></Item>
         </Content>
         <Footer name='Clear' onClick={this.removeDoneItem}></Footer>
