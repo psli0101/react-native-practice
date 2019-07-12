@@ -5,8 +5,7 @@ import { AppNavigator } from '@src/router/router';
 
 const Route = createAppContainer(AppNavigator);
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
     return (
       <Route/>

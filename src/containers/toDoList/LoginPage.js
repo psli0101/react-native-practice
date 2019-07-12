@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TextInput, Dimensions } from 'react-native';
-import { Button } from 'native-base';
+import { Button, Row } from 'native-base';
 
 export default class LoginPage extends Component {
   static navigationOptions = {
@@ -33,12 +33,11 @@ export default class LoginPage extends Component {
   render() {
     return (
       <View style={styles.all}>
-        <View style={{ flex: 1, alignItems: 'flex-end'}}>
-          <Button transparent onPress={this.signUp}>
-            <Text style={styles.btSign}>Sign up</Text>
-          </Button>
+        <View style={{ flex: 2, justifyContent: 'flex-end' }}>
+          <Text style={[styles.title, {fontSize: 30}]}>Hi there :)</Text>
+          <Text style={[styles.title, {fontSize: 40}]}>TO DO LIST</Text>
         </View>
-        <View style={{ flex: 2, }}>
+        <View style={{ flex: 3, paddingTop: 15, }}>
           <TextInput
             style={styles.userId}
             placeholder='ID'
@@ -68,6 +67,10 @@ export default class LoginPage extends Component {
             </Button>
           </View>
         </View>
+        <View style={{ flex: 2, flexDirection: 'row', }}>
+          <Text style={styles.btSign}>New here?  </Text>
+          <Text onPress={this.signUp} style={[styles.btSign, { textDecorationLine: 'underline' }]}>Sign up</Text>
+        </View>
       </View>
     );
   }
@@ -80,6 +83,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: Dimensions.get('screen').height,
     backgroundColor: '#81E297',
+  },
+  title:{
+    color: '#008000',
   },
   btView: {
     flexDirection: 'row',
@@ -98,15 +104,17 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   btSign: {
-    color: 'blue',
+    color: '#D6FFE0',
+    fontSize: 20,
+    fontWeight: '600',
   },
   userId: {
-    color: 'black',
+    color: '#000000',
     width: WIDTH,
     fontSize: 30,
   },
   password: {
-    color: 'black',
+    color: '#000000',
     width: WIDTH,
     fontSize: 30,
   },

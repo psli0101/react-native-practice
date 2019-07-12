@@ -19,5 +19,5 @@ react-native run-android
 ## 套件
 - React Native 原生Components
 - Native Base
-- axio
+- axios
 

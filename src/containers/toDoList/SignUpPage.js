@@ -10,80 +10,90 @@ export default class SignUpPage extends Component {
   constructor() {
     super();
     this.state = {
-      user_id: '',
-      user_pw: ''
+      name: '',
+      email: '',
+      id: '',
+      pw: '',
+      c_pw: '',
     }
   }
 
-  clearText = () => {
-    this.setState({
-      user_id: '',
-      user_pw: ''
-    })
-  }
-
-  login = () => {
-    this.props.navigation.navigate('List');
+  cancel = () => {
+    this.props.navigation.navigate('Login');
   }
 
   signUp = () => {
-    alert('Loading')
+    this.props.navigation.navigate('List');
   }
 
   render() {
     return (
       <View style={styles.all}>
-        <View style={{ flex: 1, alignItems: 'flex-end'}}>
-          <Button transparent onPress={this.signUp}>
-            <Text style={styles.btSign}>Sign up</Text>
+        <TextInput
+          style={styles.txt}
+          placeholder='Name'
+          onChangeText={(name) => this.setState({name})}
+          underlineColorAndroid='#000'
+          value={this.state.name}
+        />
+        <TextInput
+          style={styles.txt}
+          placeholder='E-mail'
+          onChangeText={(email) => this.setState({email})}
+          underlineColorAndroid='#000'
+          value={this.state.email}
+        />
+        <TextInput
+          style={styles.txt}
+          placeholder='ID'
+          onChangeText={(id) => this.setState({id})}
+          underlineColorAndroid='#000'
+          value={this.state.id}
+        />
+        <TextInput
+          style={styles.txt}
+          placeholder='Enter Password'
+          onChangeText={(pw) => this.setState({pw})}
+          underlineColorAndroid='#000'
+          value={this.state.pw}
+        />
+        <TextInput
+          style={styles.txt}
+          placeholder='Confirm Password'
+          onChangeText={(c_pw) => this.setState({c_pw})}
+          underlineColorAndroid='#000'
+          value={this.state.c_pw}
+        />
+        <View style={styles.btView}>
+          <Button
+            style={styles.bt}
+            onPress={this.cancel}
+          >
+            <Text style={{ fontSize: 20, }}>Cancel</Text>
           </Button>
-        </View>
-        <View style={{ flex: 2, }}>
-          <TextInput
-            style={styles.userId}
-            placeholder='ID'
-            onChangeText={(user_id) => this.setState({user_id})}
-            underlineColorAndroid='#000'
-            value={this.state.user_id}
-          />
-          <TextInput
-            style={styles.password}
-            placeholder='Password'
-            onChangeText={(user_pw) => this.setState({user_pw})}
-            underlineColorAndroid='#000'
-            value={this.state.user_pw}
-          />
-          <View style={styles.btView}>
-            <Button
-              style={styles.bt}
-              onPress={this.clearText}
-            >
-              <Text style={{ fontSize: 20, }}>Cancel</Text>
-            </Button>
-            <Button
-              style={styles.bt}
-              onPress={this.login}
-            >
-              <Text style={{ fontSize: 20, }}>Login</Text>
-            </Button>
-          </View>
+          <Button
+            style={styles.bt}
+            onPress={this.signUp}
+          >
+            <Text style={{ fontSize: 20, }}>Sign up</Text>
+          </Button>
         </View>
       </View>
     );
   }
 }
 
-const WIDTH = 200;
+const WIDTH = 300;
 
 const styles = StyleSheet.create({
   all: {
+    justifyContent: 'center',
     alignItems: 'center',
-    height: Dimensions.get('screen').height,
+    height: Dimensions.get('window').height,
     backgroundColor: '#81E297',
   },
   btView: {
     flexDirection: 'row',
-    flex: 1,
     width: WIDTH,
   },
   bt: {
@@ -100,15 +110,11 @@ const styles = StyleSheet.create({
   btSign: {
     color: 'blue',
   },
-  userId: {
-    color: 'black',
+  txt: {
+    color: '#000000',
     width: WIDTH,
-    fontSize: 30,
-  },
-  password: {
-    color: 'black',
-    width: WIDTH,
-    fontSize: 30,
+    fontSize: 25,
+    fontWeight: '100',
   },
 });
 
