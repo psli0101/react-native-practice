@@ -6,12 +6,12 @@ import SignUpPage from '@containers/toDoList/SignUpPage';
 import ListPage from '@containers/toDoList/ListPage';
 
 export const AppNavigator = createStackNavigator({
-    Login: {
+    /* Login: {
         screen: LoginPage,
     },
     SignUp: {
         screen: SignUpPage,
-    },
+    }, */
     List: {
         screen: ListPage,
     },

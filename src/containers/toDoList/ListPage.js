@@ -15,15 +15,19 @@ export default class ListPage extends Component {
     super();
   }
 
+  removeDoneItem = () => {
+    alert('Clear');
+  }
+
   render() {
     return (
       <Container>
         <Header name='To Do List'></Header>
         <Content>
-          <Edit></Edit>
+          <Edit name='ADD'></Edit>
           <Item></Item>
         </Content>
-        <Footer></Footer>
+        <Footer name='Clear' onClick={this.removeDoneItem}></Footer>
       </Container>
     );
   }

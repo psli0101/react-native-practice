@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Footer } from 'native-base';
 
 export default class Header extends Component {
   constructor() {
@@ -9,9 +8,9 @@ export default class Header extends Component {
 
   render() {
     return (
-      <Footer style={styles.title}>
+      <View style={styles.title}>
         <Text style={{ fontSize: 24, color: '#676767'}}>{this.props.name}</Text>
-      </Footer>
+      </View>
     );
   }
 }
