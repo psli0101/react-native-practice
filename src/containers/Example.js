@@ -6,10 +6,10 @@ export default class App extends Component {
   takePicture = async() => {
     try {
       const cameraData = await this.camera.takePictureAsync()
-      console.log(cameraData.uri);
+      alert(cameraData.uri);
     } catch (e) {
      // This logs the error
-      console.log(e)
+      alert(e)
     }
   };
 
