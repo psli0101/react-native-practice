@@ -19,11 +19,15 @@ export default class ListPage extends Component {
     alert('Clear');
   }
 
+  createNewItem = () => {
+    this.props.navigation.navigate('Create');
+  }
+
   render() {
     return (
       <Container>
         <Header name='To Do List'></Header>
-        <Edit name='ADD'></Edit>
+        <Edit name='ADD' onClick={this.createNewItem}></Edit>
         <Content>
           <Item></Item>
         </Content>

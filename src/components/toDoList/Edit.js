@@ -2,39 +2,9 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { Button } from 'native-base';
 
-const WeekList = ['Sun.', 'Mon.', 'Tus.', 'Wed.', 'Thu.', 'Fri.', 'Sat.'];
-
 export default class Edit extends Component {
   constructor() {
     super();
-    this.state = {
-      time: '',
-    }
-  }
-
-  countTime (num, digital) {
-    var x = ''
-    for (var i = 0; i < digital; i++) {
-      x += '0'
-    }
-    return (x + num).slice(-digital)
-  }
-
-  getTime() {
-    var cd = new Date();
-    var date = this.countTime(cd.getDate(), 2);
-    var month = this.countTime(cd.getMonth() + 1, 2);
-    var year = cd.getFullYear();
-    var week = WeekList[cd.getDay()];
-    var hours = this.countTime(cd.getHours(), 2);
-    var min = this.countTime(cd.getMinutes(), 2);
-    var time = year + '.' + month + '.' + date + '  ' + week + '  ' + hours + ':' + min;
-    return time;
-  }
-
-  onClick = () => {
-    alert(this.getTime());
-    // call API createNewItem
   }
 
   render() {
@@ -49,7 +19,7 @@ export default class Edit extends Component {
         <View style={{ marginTop: 25, marginLeft: 15, flex: 1 }}>
           <Button
             bordered style={styles.bt}
-            onPress={this.onClick}
+            onPress={this.props.onClick}
           >
             <Text style={{ fontSize: 20, }}>{this.props.name}</Text>
           </Button>
