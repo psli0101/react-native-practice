@@ -2,6 +2,7 @@ package com.myapp;
 
 import android.app.Application;
 
+import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.facebook.react.ReactApplication;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -25,8 +26,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNGestureHandlerPackage(),
-            new RNCameraPackage()
+          new RNGestureHandlerPackage(),
+          new RNCameraPackage(),
+          new ReactNativePushNotificationPackage()
       );
     }
 

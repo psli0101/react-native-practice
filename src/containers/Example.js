@@ -1,8 +1,15 @@
 import React, {Component} from 'react';
 import { AppRegistry, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Button } from 'native-base';
 import { RNCamera } from 'react-native-camera';
+import { pushNotifications } from '@services';
+
 
 export default class App extends Component {
+  handleOnPress = () => {
+    pushNotifications.localNotification();
+  };
+
   takePicture = async() => {
     try {
       const cameraData = await this.camera.takePictureAsync()
@@ -16,7 +23,10 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <RNCamera
+        <Button onPress={this.handleOnPress}>
+          <Text>Notifi</Text>
+        </Button>
+        {/* <RNCamera
           ref={ref => {
             this.camera = ref;
           }}
@@ -43,7 +53,7 @@ export default class App extends Component {
           <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.capture}>
             <Text style={{ fontSize: 14 }}> SNAP </Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
       </View>
     );
   }
