@@ -6,14 +6,29 @@ import { pushNotifications } from '@services';
 
 
 export default class App extends Component {
-  handleOnPress = () => {
-    pushNotifications.localNotification();
+  handleOnPress = (uri) => {
+    const message = {
+      autoCancel: true,
+      largeIcon: "ic_launcher",
+      smallIcon: "ic_notification",
+      bigText: "My big text that will be shown when notification is expanded",
+      subText: "This is a subText",
+      color: "green",
+      vibrate: true,
+      vibration: 300,
+      title: "MyApp",
+      message: uri,
+      playSound: true,
+      soundName: 'default',
+      actions: '["Accept", "Reject"]',
+    };
+    pushNotifications.localNotification(message);
   };
 
   takePicture = async() => {
     try {
       const cameraData = await this.camera.takePictureAsync()
-      alert(cameraData.uri);
+      this.handleOnPress(cameraData.uri)
     } catch (e) {
      // This logs the error
       alert(e)
@@ -23,16 +38,13 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button onPress={this.handleOnPress}>
-          <Text>Notifi</Text>
-        </Button>
-        {/* <RNCamera
+        <RNCamera
           ref={ref => {
             this.camera = ref;
           }}
           style={styles.preview}
           type={RNCamera.Constants.Type.back}
-          flashMode={RNCamera.Constants.FlashMode.on}
+          flashMode={RNCamera.Constants.FlashMode.off}
           androidCameraPermissionOptions={{
             title: 'Permission to use camera',
             message: 'We need your permission to use your camera',
@@ -50,10 +62,13 @@ export default class App extends Component {
           }}
         />
         <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
-          <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.capture}>
+          <Button onPress={this.takePicture.bind(this)} style={styles.capture}>
             <Text style={{ fontSize: 14 }}> SNAP </Text>
-          </TouchableOpacity>
-        </View> */}
+          </Button>
+          <Button onPress={this.handleOnPress('112345')}>
+            <Text>Click Me</Text>
+          </Button>
+        </View>
       </View>
     );
   }

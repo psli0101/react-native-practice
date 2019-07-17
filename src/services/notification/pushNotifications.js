@@ -1,6 +1,22 @@
 import PushNotification from 'react-native-push-notification';
 import { PushNotificationIOS } from 'react-native';
 
+/* const notifi = {
+  autoCancel: true,
+  largeIcon: "ic_launcher",
+  smallIcon: "ic_notification",
+  bigText: "My big text that will be shown when notification is expanded",
+  subText: "This is a subText",
+  color: "green",
+  vibrate: true,
+  vibration: 300,
+  title: "MyApp",
+  message: "Hello there :)",
+  playSound: true,
+  soundName: 'default',
+  actions: '["Accept", "Reject"]',
+}; */
+
 const configure = () => {
  PushNotification.configure({
 
@@ -26,22 +42,8 @@ const configure = () => {
  });
 };
 
-const localNotification = () => {
-  PushNotification.localNotification({
-    autoCancel: true,
-    largeIcon: "ic_launcher",
-    smallIcon: "ic_notification",
-    bigText: "My big text that will be shown when notification is expanded",
-    subText: "This is a subText",
-    color: "green",
-    vibrate: true,
-    vibration: 300,
-    title: "Notification Title",
-    message: "Notification Message",
-    playSound: true,
-    soundName: 'default',
-    actions: '["Accept", "Reject"]',
-  });
+const localNotification = (message) => {
+  PushNotification.localNotification(message);
  };
 
 export {
