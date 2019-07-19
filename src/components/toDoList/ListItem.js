@@ -3,15 +3,15 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Button } from 'native-base';
 
 export default class Edit extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
     return (
       <View style={styles.all}>
-        <Text style={styles.time}>2019.07.08  Mon.  15:00</Text>
-        <Text style={styles.txt}>My First To-do Item!!!</Text>
+        <Text style={styles.time}>{ this.props.data.date }</Text>
+        <Text style={styles.txt}>{ this.props.data.message }</Text>
         <Button bordered style={styles.bt}>
           <Text style={{ fontSize: 18.75, }}>Done</Text>
         </Button>

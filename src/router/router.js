@@ -7,19 +7,19 @@ import ListPage from '@containers/toDoList/ListPage';
 import CreatePage from '@containers/toDoList/CreatePage';
 
 export const AppNavigator = createStackNavigator({
-  Test: {
+  /* Test: {
     screen: Test,
   }, 
-  /* Login: {
+  Login: {
     screen: LoginPage,
   },
   SignUp: {
     screen: SignUpPage,
-  },
+  }, */
   List: {
     screen: ListPage,
   },
   Create: {
     screen: CreatePage,
-  } */
+  }
 });
