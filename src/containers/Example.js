@@ -6,7 +6,7 @@ import { pushNotifications } from '@services';
 
 
 export default class App extends Component {
-  handleOnPress = (uri) => {
+  handleOnPress = () => {
     const message = {
       autoCancel: true,
       largeIcon: "ic_launcher",
@@ -17,7 +17,7 @@ export default class App extends Component {
       vibrate: true,
       vibration: 300,
       title: "MyApp",
-      message: uri,
+      message: "1234567",
       playSound: true,
       soundName: 'default',
       actions: '["Accept", "Reject"]',
@@ -28,7 +28,6 @@ export default class App extends Component {
   takePicture = async() => {
     try {
       const cameraData = await this.camera.takePictureAsync()
-      this.handleOnPress(cameraData.uri)
     } catch (e) {
      // This logs the error
       alert(e)
@@ -38,13 +37,16 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <RNCamera
+        <Button onPress={this.handleOnPress}>
+          <Text>Click</Text>
+        </Button>
+        {/* <RNCamera
           ref={ref => {
             this.camera = ref;
           }}
           style={styles.preview}
           type={RNCamera.Constants.Type.back}
-          flashMode={RNCamera.Constants.FlashMode.off}
+          flashMode={RNCamera.Constants.FlashMode.on}
           androidCameraPermissionOptions={{
             title: 'Permission to use camera',
             message: 'We need your permission to use your camera',
@@ -62,13 +64,10 @@ export default class App extends Component {
           }}
         />
         <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
-          <Button onPress={this.takePicture.bind(this)} style={styles.capture}>
+          <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.capture}>
             <Text style={{ fontSize: 14 }}> SNAP </Text>
-          </Button>
-          <Button onPress={this.handleOnPress('112345')}>
-            <Text>Click Me</Text>
-          </Button>
-        </View>
+          </TouchableOpacity>
+        </View> */}
       </View>
     );
   }

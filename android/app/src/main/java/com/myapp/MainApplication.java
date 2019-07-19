@@ -2,6 +2,7 @@ package com.myapp;
 
 import android.app.Application;
 
+import com.imagepicker.ImagePickerPackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.facebook.react.ReactApplication;
@@ -28,7 +29,8 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
           new RNGestureHandlerPackage(),
           new RNCameraPackage(),
-          new ReactNativePushNotificationPackage()
+          new ReactNativePushNotificationPackage(),
+          new ImagePickerPackage()
       );
     }
 
