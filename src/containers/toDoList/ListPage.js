@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Content } from 'native-base';
+import { pushNotifications } from '@services';
 
 import Header from '@components/toDoList/Header';
 import Edit from '@components/toDoList/Edit';
@@ -22,7 +23,8 @@ export default class ListPage extends Component {
   }
 
   createNewItem = () => {
-    this.props.navigation.navigate('Create');
+    let s = { 'title': 'Create successful', 'message': '1234'};
+    pushNotifications.localNotification(s);
   }
 
   render() {

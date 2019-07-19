@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Dimensions, StyleSheet, View, Text, TextInput, Image } from 'react-native';
 import { Button } from 'native-base';
+import { pushNotifications } from '@services';
 
 export default class CreatePage extends Component {
   static navigationOptions = {
@@ -41,7 +42,8 @@ export default class CreatePage extends Component {
   }
 
   addNew = () => {
-    alert(1);
+    pushNotifications.localNotification('Create successful');
+    this.props.navigation.navigate('List');
   }
 
   render() {

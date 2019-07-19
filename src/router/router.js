@@ -9,13 +9,13 @@ import CreatePage from '@containers/toDoList/CreatePage';
 export const AppNavigator = createStackNavigator({
   /* Test: {
     screen: Test,
-  }, 
+  },  */
   Login: {
     screen: LoginPage,
   },
   SignUp: {
     screen: SignUpPage,
-  }, */
+  },
   List: {
     screen: ListPage,
   },

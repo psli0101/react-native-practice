@@ -5,6 +5,9 @@ import { Button } from 'native-base';
 export default class Edit extends Component {
   constructor() {
     super();
+    this.state = {
+      text: '',
+    }
   }
 
   render() {
