@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Container, Content } from 'native-base';
-import { pushNotifications } from '@services';
 
 import Header from '@components/toDoList/Header';
 import Edit from '@components/toDoList/Edit';
@@ -22,11 +21,6 @@ export default class ListPage extends Component {
     alert('Clear');
   }
 
-  createNewItem = () => {
-    let s = { 'title': 'Create successful', 'message': '1234'};
-    pushNotifications.localNotification(s);
-  }
-
   render() {
     const list = [];
     for (let i = 0; i < sample_list.length; i++) {
@@ -38,7 +32,7 @@ export default class ListPage extends Component {
     return (
       <Container>
         <Header name='To Do List'></Header>
-        <Edit name='ADD' onClick={this.createNewItem}></Edit>
+        <Edit name='ADD'></Edit>
         <Content>
           {list}
         </Content>

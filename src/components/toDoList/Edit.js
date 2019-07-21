@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { Button } from 'native-base';
+import { pushNotifications } from '@services';
 
 export default class Edit extends Component {
   constructor() {
     super();
     this.state = {
       text: '',
+    }
+  }
+
+  createNewItem = () => {
+    if( this.state.text !== '') {
+      let s = { 'title': 'Create successful', 'message': this.state.text};
+      pushNotifications.localNotification(s);
     }
   }
 
@@ -22,7 +30,7 @@ export default class Edit extends Component {
         <View style={{ marginTop: 25, marginLeft: 15, flex: 1 }}>
           <Button
             bordered style={styles.bt}
-            onPress={this.props.onClick}
+            onPress={this.createNewItem}
           >
             <Text style={{ fontSize: 20, }}>{this.props.name}</Text>
           </Button>

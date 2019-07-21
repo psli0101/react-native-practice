@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TextInput, Dimensions } from 'react-native';
 import { Button } from 'native-base';
+import { signUpNotifications } from '@services';
 
 export default class SignUpPage extends Component {
   static navigationOptions = {
@@ -23,7 +24,9 @@ export default class SignUpPage extends Component {
   }
 
   signUp = () => {
-    this.props.navigation.navigate('List');
+    let s = { 'title': 'Sign up successful'};
+    signUpNotifications.localNotification(s);
+    this.props.navigation.navigate('Login');
   }
 
   render() {
