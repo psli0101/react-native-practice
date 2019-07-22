@@ -3,7 +3,16 @@ import { AppRegistry, StyleSheet, Text, TouchableOpacity, View } from 'react-nat
 import { Button } from 'native-base';
 import { RNCamera } from 'react-native-camera';
 import { pushNotifications } from '@services';
+import ImagePicker from 'react-native-image-picker';
 
+const options = {
+  title: 'Select Avatar',
+  customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
+  storageOptions: {
+    skipBackup: true,
+    path: 'images',
+  },
+};
 
 export default class App extends Component {
   handleOnPress = () => {
@@ -34,11 +43,37 @@ export default class App extends Component {
     }
   };
 
+  pickPhoto = () => {
+    ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response = ', response);
+    
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+      } else {
+        const source = { uri: response.uri };
+    
+        // You can also display the image using data:
+        // const source = { uri: 'data:image/jpeg;base64,' + response.data };
+    
+        this.setState({
+          avatarSource: source,
+        });
+      }
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Button onPress={this.handleOnPress}>
           <Text>Click</Text>
+        </Button>
+        <Button onPress={this.pickPhoto}>
+          <Text>Picker</Text>
         </Button>
         {/* <RNCamera
           ref={ref => {
