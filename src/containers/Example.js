@@ -14,7 +14,7 @@ const options = {
   },
 };
 
-export default class App extends Component {
+class Example extends Component {
   handleOnPress = () => {
     const message = {
       autoCancel: true,
@@ -129,3 +129,10 @@ const styles = StyleSheet.create({
     margin: 20,
   },
 });
+
+const mapStateToProps = (state) => {
+  const { login } = state
+  return { login }
+};
+
+export default (Example)

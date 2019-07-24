@@ -1,3 +1,7 @@
+/* Example */
+export const HELLO = 'HELLO';
+export const HELLO_ERROR = 'HELLO_ERROR';
+
 /* To-do List */
 export const USER_GET_LIST = 'USER_GET_LIST';
 export const USER_GET_LIST_SUCCESS = 'USER_GET_LIST_SUCCESS';
