@@ -4,13 +4,14 @@ import {
     AUTH_LOGIN_ERROR
 } from '@constants/actionTypes';
 
-export const authLogin = () => ({
+export const authLogin = (id) => ({
     type: AUTH_LOGIN,
+    payload: id
 });
 
-export const authLoginSuccess = (items) => ({
+export const authLoginSuccess = (payload) => ({
     type: AUTH_LOGIN_SUCCESS,
-    payload: items
+    payload: payload
 });
 
 export const authLoginError = (error) => ({

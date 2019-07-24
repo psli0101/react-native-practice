@@ -2,7 +2,7 @@ import axios from 'axios'
 import { all, call, fork, put, takeEvery } from 'redux-saga/effects'
 
 import {
-  AUTH_LOGIN_LIST,
+  AUTH_LOGIN,
 } from '@constants/actionTypes'
 
 import {
@@ -27,6 +27,6 @@ function* authLogin() {
 
 export default function* rootSaga() {
   yield all([
-    takeEvery([AUTH_LOGIN_LIST], authLogin),
+    takeEvery([AUTH_LOGIN], authLogin),
   ])
 }
