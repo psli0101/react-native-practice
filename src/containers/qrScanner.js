@@ -11,13 +11,21 @@ export default class QRScanner extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      QR_URL: 'https://hackmd.io/@psli0101/SyK3V-PlS',
+      QR_URL: '',
       start: false,
     }
   }
 
   openLink = () => {
-    Linking.openURL(this.state.QR_URL);
+    Linking.canOpenURL('https://')
+    .then(supported => {
+      if (!supported) {
+        console.log("Can't handle url: " + url);
+      } else {
+        return Linking.openURL(this.state.QR_URL);
+      }
+    })
+    .catch((err) => console.error('An error occurred', err));
   };
 
   scannerQRcode = () => {
@@ -27,7 +35,6 @@ export default class QRScanner extends Component {
       [
         {
           text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
           style: 'cancel',
         },
         {text: 'OK', onPress: this.openLink},
@@ -36,22 +43,26 @@ export default class QRScanner extends Component {
     );
   }
 
+  _onBarCodeRead = (e) => {
+    this.setState({
+      QR_URL: e.data
+    });
+    this.scannerQRcode();
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        {/* <RNCamera
+        <RNCamera
           ref={ref => {
             this.camera = ref;
           }}
           style={styles.preview}
           type={RNCamera.Constants.Type.back}
-          onBarCodeRead={this.onBarCodeRead}
-        /> */}
-        <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
-          <Button onPress={this.scannerQRcode}>
-            <Text>Click</Text>
-          </Button>
-        </View>
+          onBarCodeRead={this._onBarCodeRead.bind(this)}
+        >
+          {/* <View style={{ backgroundColor: '#ffffff80', height: 300, width: 500, }}></View> */}
+        </RNCamera>
       </View>
     );
   }
