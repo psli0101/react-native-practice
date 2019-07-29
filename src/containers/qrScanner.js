@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Linking, Alert, Animated, Image, Dimensions } from 'react-native';
+import { StyleSheet, View, Text, Linking, Alert, Animated, Dimensions } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import { Button } from 'native-base';
 
@@ -13,6 +13,7 @@ export default class QRScanner extends Component {
     this.state = {
       QR_URL: '',
       start: false,
+      move: new Animated.Value(0),
     }
   }
 
@@ -62,29 +63,22 @@ export default class QRScanner extends Component {
           onBarCodeRead={this._onBarCodeRead.bind(this)}
         >
           {/* <View style={{ backgroundColor: '#ffffff80', height: 300, width: 500, }}></View> */}
-          <View style={{ flexDirection: 'row' }}>
-            <View style={styles.itemStyle} />
-            {/* <Image style={styles.rectangle}
-              source={require('../AssetsImages/code_bar.png')}>
-              <Animated.View style={[styles.animatiedStyle, {
-                transform: [{
-                  translateY: this.state.anim.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [0, 200]
-                  })
-                }]
-              }]}>
-              </Animated.View>
-            </Image> */}
-            <View style={styles.itemStyle} />
-          </View>
+          <Animated.View
+              style={[
+                {
+                  width: Dimensions.get('window').width,
+                  backgroundColor: '#00ff00',
+                  height: 2,
+                },
+                { transform: [{ translateY: this.state.move }] },
+              ]}
+            />
         </RNCamera>
       </View>
     );
   }
 }
 
-var {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -104,10 +98,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     alignSelf: 'center',
     margin: 20,
-  },
-  itemStyle: {
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    width: (width - 200) / 2,
-    height: 200
   },
 });
