@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Button } from 'native-base';
 import { pushNotifications } from '@services';
 import ImagePicker from 'react-native-image-picker';
+import RNFS from 'react-native-fs';
 
 import { connect } from 'react-redux';
 import { getList } from '@redux/actions';
@@ -17,10 +18,13 @@ const options = {
 };
 
 class Example extends Component {
-
-  componentDidMount() {
-    this.props.getList();
+  constructor(props) {
+    super(props);
   }
+
+  /* componentDidMount() {
+    this.props.getList();
+  } */
 
   handleOnPress = () => {
     const message = {
@@ -41,11 +45,11 @@ class Example extends Component {
     pushNotifications.localNotification(message);
   };
 
-  takePicture = async() => {
+  takePicture = async () => {
     try {
       const cameraData = await this.camera.takePictureAsync()
     } catch (e) {
-     // This logs the error
+      // This logs the error
       alert(e)
     }
   };
@@ -53,7 +57,7 @@ class Example extends Component {
   pickPhoto = () => {
     ImagePicker.showImagePicker(options, (response) => {
       console.log('Response = ', response);
-    
+
       if (response.didCancel) {
         console.log('User cancelled image picker');
       } else if (response.error) {
@@ -62,15 +66,40 @@ class Example extends Component {
         console.log('User tapped custom button: ', response.customButton);
       } else {
         const source = { uri: response.uri };
-    
+
         // You can also display the image using data:
         // const source = { uri: 'data:image/jpeg;base64,' + response.data };
-    
+
         this.setState({
           avatarSource: source,
         });
       }
     });
+  }
+
+  fileSys = () => {
+    RNFS.readDir(RNFS.DocumentDirectoryPath) // On Android, use "RNFS.DocumentDirectoryPath" (MainBundlePath is not defined)
+      .then((result) => {
+        console.log('GOT RESULT', result);
+
+        // stat the first file
+        return Promise.all([RNFS.stat(result[0].path), result[0].path]);
+      })
+      .then((statResult) => {
+        if (statResult[0].isFile()) {
+          // if we have a file, read it
+          return RNFS.readFile(statResult[1], 'utf8');
+        }
+
+        return 'no file';
+      })
+      .then((contents) => {
+        // log the file contents
+        console.log(contents);
+      })
+      .catch((err) => {
+        console.log(err.message, err.code);
+      });
   }
 
   render() {
@@ -86,6 +115,9 @@ class Example extends Component {
           <Text>Click</Text>
         </Button>
         <Button onPress={this.pickPhoto}>
+          <Text>Picker</Text>
+        </Button>
+        <Button onPress={this.fileSys}>
           <Text>Picker</Text>
         </Button>
       </View>
@@ -114,8 +146,8 @@ const styles = StyleSheet.create({
     margin: 20,
   },
 });
-
-const mapStateToProps = ({state}) => {
+/* 
+const mapStateToProps = ({ state }) => {
   const {
     getList: {
       list,
@@ -128,11 +160,14 @@ const mapStateToProps = ({state}) => {
     listLoaded,
     listError,
   };
-};
+}; */
 
-export default connect(
+/* export default connect(
   mapStateToProps,
   {
     getList,
   }
 )(Example)
+ */
+
+export default Example;

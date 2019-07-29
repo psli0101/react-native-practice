@@ -1,6 +1,6 @@
 import { createStackNavigator } from 'react-navigation';
 
-import Test from '@containers/qrScanner';
+import Test from '@containers/Example';
 import LoginPage from '@containers/toDoList/LoginPage';
 import SignUpPage from '@containers/toDoList/SignUpPage';
 import ListPage from '@containers/toDoList/ListPage';
