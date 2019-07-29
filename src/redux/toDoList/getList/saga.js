@@ -11,7 +11,7 @@ import {
 } from './actions'
 
 const getListRequest = async () => {
-  return axios.get(`*************`)
+  return axios.get(``)
     .then(response => response.data)
     .catch(error => error)
 }

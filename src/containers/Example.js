@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
-import { AppRegistry, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Button } from 'native-base';
-import { RNCamera } from 'react-native-camera';
 import { pushNotifications } from '@services';
 import ImagePicker from 'react-native-image-picker';
+
+import { connect } from 'react-redux';
+import { getList } from '@redux/actions';
 
 const options = {
   title: 'Select Avatar',
@@ -15,6 +17,11 @@ const options = {
 };
 
 class Example extends Component {
+
+  componentDidMount() {
+    this.props.getList();
+  }
+
   handleOnPress = () => {
     const message = {
       autoCancel: true,
@@ -67,6 +74,12 @@ class Example extends Component {
   }
 
   render() {
+    const {
+      list,
+      listLoaded,
+      listError
+    } = this.props;
+
     return (
       <View style={styles.container}>
         <Button onPress={this.handleOnPress}>
@@ -75,34 +88,6 @@ class Example extends Component {
         <Button onPress={this.pickPhoto}>
           <Text>Picker</Text>
         </Button>
-        {/* <RNCamera
-          ref={ref => {
-            this.camera = ref;
-          }}
-          style={styles.preview}
-          type={RNCamera.Constants.Type.back}
-          flashMode={RNCamera.Constants.FlashMode.on}
-          androidCameraPermissionOptions={{
-            title: 'Permission to use camera',
-            message: 'We need your permission to use your camera',
-            buttonPositive: 'Ok',
-            buttonNegative: 'Cancel',
-          }}
-          androidRecordAudioPermissionOptions={{
-            title: 'Permission to use audio recording',
-            message: 'We need your permission to use your audio',
-            buttonPositive: 'Ok',
-            buttonNegative: 'Cancel',
-          }}
-          onGoogleVisionBarcodesDetected={({ barcodes }) => {
-            console.log(barcodes);
-          }}
-        />
-        <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
-          <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.capture}>
-            <Text style={{ fontSize: 14 }}> SNAP </Text>
-          </TouchableOpacity>
-        </View> */}
       </View>
     );
   }
@@ -130,9 +115,24 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state) => {
-  const { login } = state
-  return { login }
+const mapStateToProps = ({state}) => {
+  const {
+    getList: {
+      list,
+      loading: listLoaded,
+      error: listError
+    }
+  } = state;
+  return {
+    list,
+    listLoaded,
+    listError,
+  };
 };
 
-export default (Example)
+export default connect(
+  mapStateToProps,
+  {
+    getList,
+  }
+)(Example)
