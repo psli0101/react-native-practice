@@ -23,3 +23,5 @@ export const AppNavigator = createStackNavigator({
     screen: CreatePage,
   } */
 });
+
+export default AppNavigator;

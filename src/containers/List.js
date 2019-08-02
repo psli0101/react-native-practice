@@ -14,6 +14,18 @@ class List extends Component {
     }
   }
 
+  componentDidMount() {
+    const list = [];
+    for (let i = 0; i < sample_list.length; i++) {
+      list.push(
+        <Item key={i} data={sample_list[i]}></Item>
+      )
+    }
+    this.setState({
+      list: list
+    })
+  }
+
   fetchData = () => {
     for (let i = 0; i < sample_list.length; i++) {
       this.state.list.push(
@@ -30,12 +42,6 @@ class List extends Component {
   }
 
   render() {
-    for (let i = 0; i < sample_list.length; i++) {
-      this.state.list.push(
-        <Item key={i} data={sample_list[i]}></Item>
-      )
-    }
-
     return (
       <ScrollView
       refreshControl={
