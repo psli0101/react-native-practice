@@ -4,7 +4,6 @@ import { createStackNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-
 import Test from '@containers/List';
 import LoginPage from '@containers/toDoList/LoginPage';
 import SignUpPage from '@containers/toDoList/SignUpPage';
@@ -71,6 +70,16 @@ export const TabNavigator = createMaterialBottomTabNavigator(
           </View>),
       }
     },
+    Favorite: {
+      screen: ListPage,
+      navigationOptions: {
+        tabBarLabel: 'Favorite',
+        tabBarIcon: ({ tintColor }) => (
+          <View>
+            <Icon style={[{ color: tintColor }]} size={25} name={'md-heart'} />
+          </View>),
+      }
+    }
   },
   {
     initialRouteName: "Login",
