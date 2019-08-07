@@ -5,6 +5,7 @@ import { pushNotifications } from '@services';
 import ImagePicker from 'react-native-image-picker';
 import RNFS from 'react-native-fs';
 import { Calendar } from 'react-native-calendars';
+import QRcode from 'react-native-qrcode-svg';
 
 import { connect } from 'react-redux';
 import { getList } from '@redux/actions';
@@ -155,6 +156,9 @@ class Example extends Component {
           onPressArrowLeft={substractMonth => substractMonth()}
           // Handler which gets executed when press arrow icon left. It receive a callback can go next month
           onPressArrowRight={addMonth => addMonth()}
+        />
+        <QRcode
+          value='https://www.npmjs.com/package/react-native-qrcode-svg'
         />
       </View>
     );

@@ -6,6 +6,7 @@ import com.imagepicker.ImagePickerPackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.facebook.react.ReactApplication;
+import com.horcrux.svg.SvgPackage;
 import com.psykar.cookiemanager.CookieManagerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.rnfs.RNFSPackage;
@@ -30,6 +31,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new SvgPackage(),
             new CookieManagerPackage(),
             new VectorIconsPackage(),
             new RNFSPackage(),
