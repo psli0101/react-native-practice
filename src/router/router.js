@@ -4,13 +4,13 @@ import { createStackNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import Test from '@containers/List';
+import Test from '@containers/Example';
 import LoginPage from '@containers/toDoList/LoginPage';
 import SignUpPage from '@containers/toDoList/SignUpPage';
 import ListPage from '@containers/toDoList/ListPage';
 import CreatePage from '@containers/toDoList/CreatePage';
 
-const AppNavigator = createStackNavigator({
+export const AppNavigator = createStackNavigator({
   Test: {
     screen: Test,
   }, /* 
