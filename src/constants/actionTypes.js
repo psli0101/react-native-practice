@@ -1,6 +1,7 @@
 /* Example */
 export const HELLO = 'HELLO';
 export const HELLO_ERROR = 'HELLO_ERROR';
+export const HELLO_SUCCESS = 'HELLO_SUCCESS';
 
 /* To-do List */
 export const USER_GET_LIST = 'USER_GET_LIST';

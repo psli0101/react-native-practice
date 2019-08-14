@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import Test from '@containers/Slider';
+import Test from '@containers/Test';
 import LoginPage from '@containers/toDoList/LoginPage';
 import SignUpPage from '@containers/toDoList/SignUpPage';
 import ListPage from '@containers/toDoList/ListPage';
