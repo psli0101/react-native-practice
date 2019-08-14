@@ -16,17 +16,17 @@ export const getListRequest = () => ({
 
 export const getListSuccess = response => ({
   type: USER_GET_LIST_SUCCESS,
-  response
+  payload: response
 })
 
 export const getListError = error => ({
   type: USER_GET_LIST_ERROR,
-  error
+  payload: error
 })
 
 export const getList = () => (dispatch => {
   dispatch(getListRequest());
-  return fetch('http://107.23.45.68/people/public/index.php/api/index')
+  return fetch('http://107.23.45.68/api/user/1')
     .then(response => dispatch(getListSuccess(response)))
     .catch(error => dispatch(getListError(error)));
 })

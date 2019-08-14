@@ -14,7 +14,7 @@ class Test extends Component {
 
   componentDidMount() {
     this.props.getList();
-    alert(this.state.data);
+    alert(this.props.data);
   }
 
   placeSubmitHandler = () => {
