@@ -6,20 +6,19 @@ import {
 } from '@constants/actionTypes';
 
 const INIT_STATE = {
-  loading: false,
-  list: {}
+  data: {}
 }
 
-export default (state = INIT_STATE, action) => {
+export default (state = {}, action) => {
   switch (action.type) {
     case USER_GET_LIST:
-      return { ...state, loading: false };
+      return { ...state };
 
     case USER_GET_LIST_SUCCESS:
-      return { ...state, loading: true, list: action.data };
+      return { ...state, data: action.payload };
 
     case USER_GET_LIST_ERROR:
-      return { ...state, loading: true, error: action };
+      return { ...state, error };
 
     default: return { ...state };
   }
