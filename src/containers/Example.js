@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Linking } from 'react-native';
 import { Button } from 'native-base';
 import { pushNotifications } from '@services';
 import ImagePicker from 'react-native-image-picker';
@@ -104,6 +104,10 @@ class Example extends Component {
       });
   }
 
+  phoneCall = () => {
+    Linking.openURL(`tel:**********`);
+  }
+
   render() {
     const {
       list,
@@ -121,6 +125,9 @@ class Example extends Component {
         </Button>
         <Button onPress={this.fileSys}>
           <Text>Picker</Text>
+        </Button>
+        <Button onPress={this.phoneCall}>
+          <Text>Phone Call</Text>
         </Button>
         <Calendar
           // Initially visible month. Default = Date()
